@@ -1,0 +1,129 @@
+---
+import {Image} from '@astrojs/image/components'
+
+import Container from './Container.astro'
+import FacebookIcon from './icons/FacebookIcon.astro'
+import InstagramIcon from './icons/InstagramIcon.astro'
+import PinterestIcon from './icons/PinterestIcon.astro'
+import TwitterIcon from './icons/TwitterIcon.astro'
+import YoutubeIcon from './icons/YoutubeIcon.astro'
+
+const LINKS = [
+  {
+    label: 'our company',
+    href: '/about-us',
+  },
+  {
+    label: 'locations',
+    href: '/locations',
+  },
+  {
+    label: 'contact',
+    href: '/contact',
+  },
+]
+
+const {address, contactUs, social} = {
+  address: {
+    name: 'Designo Central Office',
+    street: '3886 Wellington Street',
+    location: 'Toronto, Ontario M9C 3J5',
+  },
+  contactUs: {
+    name: 'Contact Us (Central Office)',
+    phone: '+1 253-863-8967',
+    mail: 'contact@designo.co',
+  },
+  social: [
+    {
+      href: 'https://www.facebook.com/',
+      Icon: FacebookIcon,
+    },
+    {
+      href: 'https://youtube.com/',
+      Icon: YoutubeIcon,
+    },
+    {
+      href: 'https://twitter.com/',
+      Icon: TwitterIcon,
+    },
+    {
+      href: 'https://co.pinterest.com/',
+      Icon: PinterestIcon,
+    },
+    {
+      href: 'https://www.instagram.com/',
+      Icon: InstagramIcon,
+    },
+  ],
+}
+---
+
+<footer class="bg-black w-full pt-[40px] pb-[64px]">
+  <Container class="px-[24px]">
+    <div
+      class="flex flex-col tablet:flex-row items-center tablet:flex-wrap tablet:justify-between gap-y-[32px] mb-[32px]"
+    >
+      <Image
+        class="tablet:mb-0"
+        src="/logo-light.png"
+        alt="logo footer"
+        width={202}
+        height={27}
+        fit="contain"
+      />
+      <hr class="w-full border-white-100 opacity-10 tablet:order-3" />
+      <ul
+        class="flex flex-col tablet:flex-row gap-y-[32px] tablet:gap-x-[42px] text-center"
+      >
+        {
+          LINKS.map(link => (
+            <li>
+              <a
+                class="font-light text-sm text-white-100 uppercase"
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div
+      class="flex flex-col items-center gap-y-[32px] tablet:flex-row tablet:gap-x-[32px] desktop:gap-x-[128px]"
+    >
+      <div class="flex flex-col items-center tablet:items-start">
+        <h6 class="text-md opacity-50 text-white-100 font-medium">
+          {address.name}
+        </h6>
+        <h6 class="text-md opacity-50 text-white-100 font-light">
+          {address.street}
+        </h6>
+        <h6 class="text-md opacity-50 text-white-100 font-light">
+          {address.location}
+        </h6>
+      </div>
+      <div class="flex flex-col items-center tablet:items-start">
+        <h6 class="text-md opacity-50 text-white-100 font-medium">
+          {contactUs.name}
+        </h6>
+        <h6 class="text-md opacity-50 text-white-100 font-light">
+          <span class="mr-[5px]">P :</span>{contactUs.phone}
+        </h6>
+        <h6 class="text-md opacity-50 text-white-100 font-light">
+          <span class="mr-[5px]">M :</span>{contactUs.mail}
+        </h6>
+      </div>
+      <div class="flex gap-x-[16px] tablet:self-end tablet:ml-auto">
+        {
+          social.map(({Icon, href}) => (
+            <a href={href}>
+              <Icon />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</footer>

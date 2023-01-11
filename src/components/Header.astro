@@ -1,0 +1,40 @@
+---
+import Logo from './icons/Logo.astro'
+
+const LINKS = [
+  {
+    label: 'our company',
+    href: '/about-us',
+  },
+  {
+    label: 'locations',
+    href: '/locations',
+  },
+  {
+    label: 'contact',
+    href: '/contact',
+  },
+]
+---
+
+<nav class="w-full py-16">
+  <div
+    class="max-w-screen-desktop flex justify-between mx-auto px-0 tablet:px-[40px] desktop:px-[14px]"
+  >
+    <Logo width={196} height={24} />
+    <ul class="flex gap-x-11">
+      {
+        LINKS.map(link => (
+          <li>
+            <a
+              class="font-jost font-normal text-sm text-grey-500 uppercase"
+              href={link.href}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
