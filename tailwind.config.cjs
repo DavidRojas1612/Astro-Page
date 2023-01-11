@@ -44,7 +44,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/line-clamp'),
-    plugin(function ({matchUtilities, addBase, theme}) {
+    plugin(function ({matchUtilities, addBase, addComponents, theme}) {
       matchUtilities(
         {
           'inline-size': value => ({
@@ -52,10 +52,33 @@ module.exports = {
           }),
         },
         {values: theme('spacing')},
-      ),
-        addBase({
-          html: {fontFamily: theme('fontFamily.jost')},
-        })
+      )
+      addBase({
+        html: {fontFamily: theme('fontFamily.jost')},
+      })
+      addComponents({
+        '.nav-mobile': {
+          position: 'fixed;',
+          width: '100vw;',
+          top: '97px;',
+          left: ' 50%;',
+          backgroundColor: 'rgba(41, 45, 60, 0.95);',
+          height: 'calc(100vh - 97px);',
+          transform: 'translate(-50%) scaleY(0);',
+          transformOrigin: 'top center;',
+          transition: 'transform 0.3s ease;',
+          zIndex: '50;',
+        },
+        '.nav-desktop': {
+          position: 'relative',
+          width: 'auto',
+          height: 'auto',
+          top: 'unset;',
+          left: ' unset;',
+          backgroundColor: 'transparent',
+          transform: 'none;',
+        },
+      })
     }),
   ],
 }

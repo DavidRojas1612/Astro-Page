@@ -1,5 +1,6 @@
 ---
-import Logo from './icons/Logo.astro'
+import {Image} from '@astrojs/image/components'
+import MenuIcon from './icons/MenuIcon.astro'
 
 const LINKS = [
   {
@@ -17,17 +18,34 @@ const LINKS = [
 ]
 ---
 
-<nav class="w-full py-16">
+<nav class="w-full py-[35px] relative">
   <div
-    class="max-w-screen-desktop flex justify-between mx-auto px-0 tablet:px-[40px] desktop:px-[14px]"
+    class="max-w-screen-desktop flex justify-between mx-auto px-[24px] tablet:px-[40px] desktop:px-[14px]"
   >
-    <Logo width={196} height={24} />
-    <ul class="flex gap-x-11">
+    <Image
+      class="tablet:mb-0 object-contain"
+      src="/logo-dark.png"
+      alt="logo header"
+      width={202}
+      height={27}
+      fit="contain"
+    />
+    <input type="checkbox" id="menu" hidden class="peer" />
+    <label
+      for="menu"
+      class="relative z-50 lg:hidden peer-checked:[&>.first]:hidden peer-checked:[&>.last]:block tablet:hidden"
+    >
+      <MenuIcon />
+    </label>
+    <ul
+      id="menu-items"
+      class="nav-mobile tablet:nav-desktop flex flex-col tablet:flex-row tablet:gap-x-[32px] items-start py-[48px] px-[24px] gap-y-[32px] bg-grey-500 tablet:relative"
+    >
       {
         LINKS.map(link => (
           <li>
             <a
-              class="font-jost font-normal text-sm text-grey-500 uppercase"
+              class="font-jost font-normal text-sm text-white-100 tablet:text-grey-500 uppercase"
               href={link.href}
             >
               {link.label}
@@ -38,3 +56,39 @@ const LINKS = [
     </ul>
   </div>
 </nav>
+<script type="module">
+  const menuCheckbox = document.getElementById('menu')
+  const menuItems = document.getElementById('menu-items')
+
+  /** @param {boolean} value */
+  function hideOverFlow(value) {
+    if (value) {
+      window.scrollTo(0, 0)
+      document.body.style.overflowY = 'hidden'
+      menuItems.classList.add('nav--show')
+    } else {
+      document.body.style.overflowY = 'auto'
+      menuItems.classList.remove('nav--show')
+    }
+  }
+  menuCheckbox.addEventListener('change', e =>
+    e.target.checked ? hideOverFlow(true) : hideOverFlow(false),
+  )
+</script>
+<style is:global>
+  nav .nav--show {
+    transform: translate(-50%) scale(1);
+  }
+  /* .nav {
+    position: fixed;
+    width: 100vw;
+    top: 97px;
+    left: 50%;
+    background-color: rgba(41, 45, 60, 0.95);
+    height: calc(100vh - 97px);
+    transform: translate(-50%) scaleY(0);
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+    z-index: 50;
+  } */
+</style>
