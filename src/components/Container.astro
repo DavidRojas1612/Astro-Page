@@ -1,0 +1,18 @@
+---
+import c from 'clsx'
+
+export interface Props {
+  class?: string
+}
+
+const {class: classNames} = Astro.props
+---
+
+<section
+  class={c(
+    'max-w-screen-desktop mx-auto px-0 tablet:px-[40px] desktop:px-[14px]',
+    classNames,
+  )}
+>
+  <slot />
+</section>
