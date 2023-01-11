@@ -1,11 +1,7 @@
 # Welcome to [Astro](https://astro.build)
+Landing page exercise to learn about astro.build
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+![basics](https://user-images.githubusercontent.com/21252506/211877073-a2781990-eaf9-4078-84cf-3c1491e0c90c.png)
 
 
 ## 🚀 Project Structure
