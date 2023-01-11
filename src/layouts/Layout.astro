@@ -14,6 +14,32 @@ const {title} = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="title" content="Astro Page Example" />
+    <meta name="description" content="" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://designo-astro-dr.netlify.app/" />
+    <meta property="og:title" content="Astro Page Example" />
+    <meta property="og:description" content="" />
+    <meta
+      property="og:image"
+      content="https://user-images.githubusercontent.com/21252506/211877073-a2781990-eaf9-4078-84cf-3c1491e0c90c.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://designo-astro-dr.netlify.app/"
+    />
+    <meta property="twitter:title" content="Astro Page Example" />
+    <meta property="twitter:description" content="" />
+    <meta
+      property="twitter:image"
+      content="https://user-images.githubusercontent.com/21252506/211877073-a2781990-eaf9-4078-84cf-3c1491e0c90c.png"
+    />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
