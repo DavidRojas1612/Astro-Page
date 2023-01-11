@@ -1,0 +1,33 @@
+---
+export interface Props {
+  class: string
+  width: string | number
+  height: string | number
+}
+
+const {class: className, width, height} = Astro.props
+---
+
+<svg
+  width={width}
+  height={height}
+  class={className}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="a">
+      <stop stop-color="#5D0202" stop-opacity="0" offset="0%"></stop>
+      <stop stop-color="#5D0202" stop-opacity=".498" offset="100%"></stop>
+    </linearGradient>
+  </defs>
+  <circle
+    fill="url(#a)"
+    transform={`matrix(0 -1 -1 0 ${width} ${height})`}
+    cx={`${Number(width) / 2}`}
+    cy={`${Number(width) / 2}`}
+    r={`${Number(width) / 2}`}
+    fill-rule="evenodd"
+    opacity=".309"
+  >
+  </circle>
+</svg>
