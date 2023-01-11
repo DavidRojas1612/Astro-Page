@@ -1,0 +1,43 @@
+---
+import Container from '../../Container.astro'
+
+const data = {
+  title: `Let’s talk about your project`,
+  description:
+    'Ready to take it to the next level? Contact us today and find out how our expertise can help your business grow.',
+  ctaHref: 'Get in touch',
+}
+---
+
+<section class="py-[32px] bg-gradient-to-t from-[#1D1C1E_50%] to-[white_50%]">
+  <Container class="px-[24px]">
+    <div
+      class="bg-image bg-center w-full rounded-xl py-[64px] px-[24px] desktop:flex desktop:justify-between desktop:px-[96px] desktop:items-center"
+    >
+      <div>
+        <h1
+          class="text-white-100 text-2lg tablet:text-xl tablet:font-medium text-center inline-size-[260px] tablet:inline-size-[360px] desktop:text-left mx-auto mb-[12px] desktop:mx-0"
+        >
+          {data.title}
+        </h1>
+        <p
+          class="text-white-100 text-light tablet:text-md text-center font-light tablet:inline-size-[400px] desktop:text-left mx-auto mb-[32px] desktop:mb-0"
+        >
+          {data.description}
+        </p>
+      </div>
+      <a
+        class="w-[152px] h-[56px] bg-white-100 mx-auto rounded-xl uppercase flex justify-center items-center desktop:mx-0 desktop:justify-self-end hover:bg-peach-100 hover:text-white-100"
+        href=""
+      >
+        {data.ctaHref}
+      </a>
+    </div>
+  </Container>
+</section>
+<style>
+  .bg-image {
+    background-image: url('/bg-pattern-call-to-action.svg');
+    background-color: #e7816b;
+  }
+</style>

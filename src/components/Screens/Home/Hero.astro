@@ -1,0 +1,42 @@
+---
+import {Image} from '@astrojs/image/components'
+import HeroPhoneImg from '../../../assets/images/image-hero-phone.png'
+
+const data = {
+  title: 'Award-winning custom designs and digital branding solutions',
+  description:
+    'With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.',
+  ctaLink: {
+    label: 'Learn More',
+    href: '/about-us',
+  },
+}
+---
+
+<section
+  class="bg-peach-500 relative overflow-hidden flex tablet:rounded-xl w-full h-[843px] desktop:h-auto desktop:px-[95px] desktop:py-[141px] after:content-[''] after:opacity-30 after:absolute after:top-0 after:right-0 after:block after:bg-gradient-to-t after:from-[#5d020200] after:to-[#5d02027f] after:w-[640px] after:h-[640px] after:rounded-full px-[24px] pt-[80px] tablet:p-[60px] after:translate-x-[100px] after:translate-y-[110px]"
+>
+  <div class="relative z-10 w-full">
+    <h1
+      class="text-white-100 text-2lg tablet:text-2xl break-words mx-auto desktop:mx-0 tablet:inline-size-[475px] mb-[40px] text-center desktop:text-left"
+    >
+      {data.title}
+    </h1>
+    <p
+      class="text-white-100 text-md mx-auto desktop:mx-0 tablet:inline-size-[445px] mb-[40px] text-center desktop:text-left"
+    >
+      {data.description}
+    </p>
+    <a
+      class="rounded-lg bg-white-100 mx-auto desktop:mx-0 flex justify-center items-center max-w-[152px] h-[56px] uppercase transition-colors hover:bg-peach-100 hover:text-white-100"
+      href={data.ctaLink.href}>{data.ctaLink.label}</a
+    >
+  </div>
+  <Image
+    class="absolute top-[50%] right-[50%] translate-x-1/2 tablet:translate-y-[-120px] desktop:translate-x-full desktop:-translate-y-[350px] z-20"
+    src={HeroPhoneImg}
+    alt="hero phone image"
+    width={624}
+    height={913}
+  />
+</section>

@@ -1,0 +1,57 @@
+---
+import BgPrinciple from '../../icons/BgPrinciple.astro'
+import FriendlyIcon from '../../icons/FriendlyIcon.astro'
+import PassionateIcon from '../../icons/PassionateIcon.astro'
+import ResourcefulIcon from '../../icons/ResourcefulIcon.astro'
+
+const PRINCIPLES = [
+  {
+    title: 'passionate',
+    description:
+      'Each project starts with an in-depth brand research to ensure we only create products that serve a purpose. We merge art, design, and technology into exciting new solutions.',
+    Icon: PassionateIcon,
+    rotateBg: '-rotate-90',
+  },
+  {
+    title: 'resourceful',
+    description:
+      'Everything that we do has a strategic purpose. We use an agile approach in all of our projects and value customer collaboration. It guarantees superior results that fulfill our clients’ needs.',
+    Icon: ResourcefulIcon,
+    rotateBg: '-rotate-180',
+  },
+  {
+    title: 'friendly',
+    description:
+      'We are a group of enthusiastic folks who know how to put people first. Our success depends on our customers, and we strive to give them the best experience a company can provide.',
+    Icon: FriendlyIcon,
+    rotateBg: 'rotate-0',
+  },
+]
+---
+
+<section
+  class="pb-[60px] grid grid-cols-[repeat(auto-fit,_minmax(100%,_1fr))] desktop:grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-[30px] px-[24px] tablet:px-0"
+>
+  {
+    PRINCIPLES.map(({Icon, ...principle}) => (
+      <div class="flex flex-col tablet:flex-row tablet:gap-x-[30px] desktop:flex-col">
+        <div class="relative flex flex-col  items-center justify-center mb-[48px] tablet:mb-0 desktop:mb-[48px]">
+          <BgPrinciple
+            width={202}
+            height={202}
+            class={`${principle.rotateBg} absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 -z-[1]`}
+          />
+          <Icon />
+        </div>
+        <div class="flex flex-col justify-start tablet:justify-center desktop:justify-start">
+          <h1 class="text-lg text-grey-500 uppercase text-center tablet:text-left desktop:text-center mb-[32px]">
+            {principle.title}
+          </h1>
+          <p class="text-md text-grey-500 text-center tablet:text-left desktop:text-center">
+            {principle.description}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</section>

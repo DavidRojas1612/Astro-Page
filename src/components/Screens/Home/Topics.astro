@@ -1,0 +1,42 @@
+---
+import Card from '../../Card.astro'
+import clsx from 'clsx'
+
+const LINKS = [
+  {
+    label: 'web design',
+    href: '/web-design',
+    backgroundURL: '/image-web-design-large.jpg',
+  },
+  {
+    label: 'app design',
+    href: '/app-design',
+    backgroundURL: '/image-app-design.jpg',
+  },
+  {
+    label: 'graphic design',
+    href: '/graphic-design',
+    backgroundURL: '/image-graphic-design.jpg',
+  },
+]
+---
+
+<section
+  class={clsx(
+    'px-[24px] py-[120px] grid grid-cols-1 gap-4',
+    'tablet:px-0',
+    'desktop:grid-cols-2 desktop:grid-rows-2 desktop:gap-y-[24px] desktop:gap-x-[30px]',
+  )}
+>
+  {
+    LINKS.map((link, idx) => (
+      <Card
+        title={link.label}
+        href={link.href}
+        body="view projects"
+        styles={clsx({'row-span-2 desktop:h-auto': idx === 0})}
+        backgroundURL={link.backgroundURL}
+      />
+    ))
+  }
+</section>
